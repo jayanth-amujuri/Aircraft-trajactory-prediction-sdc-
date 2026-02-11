@@ -1,0 +1,108 @@
+# =========================
+# Node.js / Express backend
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# dotenv environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+logs/*.log
+debug.log
+error.log
+out.log
+
+# Build outputs
+dist/
+build/
+.cache/
+.next/
+.nuxt/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# =========================
+# Python integration
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.egg
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python build
+build/
+develop-eggs/
+dist/
+downloads/
+wheels/
+pip-wheel-metadata/
+*.egg-info/
+.installed.cfg
+
+# Python cache
+*.ipynb_checkpoints
+.pytest_cache/
+.cache/
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# =========================
+# OS & Editor files
+# =========================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Mac & Windows system files
+.DS_Store
+Thumbs.db
+
+# =========================
+# Custom project files
+# =========================
+# Uploads / media storage
+uploads/
+media/
+public/uploads/
+
+# If using ImageKit or Cloud storage, ignore local uploads
+uploads/*
+!uploads/.gitkeep

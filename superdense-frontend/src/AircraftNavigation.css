@@ -1,0 +1,276 @@
+.aircraft-navigation {
+  display: grid;
+  grid-template-columns: 25% 40% 35% 25%;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+  overflow: hidden;
+}
+
+/* --- LEFT SIDEBAR --- */
+.sidebar {
+  background-color: #242424;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  text-align: center;
+  color: #00eaff;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.selector select,
+.selector button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  background-color: #333;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.selector select:focus,
+.selector button:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00eaff;
+}
+
+.selector button:hover:not(:disabled) {
+  background-color: #00eaff;
+  color: #1a1a1a;
+}
+
+.selector button:disabled {
+  background-color: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* --- TABLES --- */
+.table-container {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid #444;
+  animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.table-container h3 {
+  color: #22d3ee;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.table-container th {
+  background-color: #333;
+}
+
+.redirect-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.redirect-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+}
+
+/* --- MIDDLE MAP PANEL --- */
+.map-section {
+  width: 100%;
+  height: 100%;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  filter: brightness(0.8);
+}
+
+/* --- RIGHT VISUAL PANEL --- */
+.right-panel {
+  background-color: #000;
+  background-image: radial-gradient(ellipse at center,
+      rgba(30, 30, 50, 0.5) 0%,
+      rgba(0, 0, 0, 1) 70%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Emoji objects */
+.emoji {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(0, 234, 255, 0.6));
+  position: relative;
+  z-index: 10;
+}
+
+.right-panel .satellite {
+  position: absolute;
+  top: 120px;
+  right: 40px;
+  width: 160px;
+  animation: float 6s ease-in-out infinite;
+}
+.right-panel .plane {
+  position: absolute;
+  bottom: 180px;
+  left: 40px;
+  width: 200px;
+  animation: float 8s ease-in-out infinite reverse;
+}
+.right-panel .ground {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 180px;
+  animation: float 7s ease-in-out infinite;
+}
+
+/* Laser beam animation */
+.laser {
+  position: absolute;
+  width: 4px;
+  background: #0ff;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  border-radius: 2px;
+  animation-fill-mode: forwards;
+}
+.aircraft-to-satellite {
+  left: 140px;
+  bottom: 260px;
+  height: 0;
+  animation: laser1 3s linear forwards;
+}
+.satellite-to-ground {
+  right: 260px;
+  top: 200px;
+  height: 0;
+  animation: laser2 3s linear 3s forwards; /* delay 3s */
+}
+
+@keyframes laser1 {
+  0% { height: 0; }
+  100% { height: 180px; }
+}
+@keyframes laser2 {
+  0% { height: 0; }
+  100% { height: 160px; }
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- STARFIELD & SPARKLES --- */
+.stars-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  z-index: 0;
+  box-shadow: 
+    1521px 1199px #FFF, 792px 1420px #FFF, 434px 1550px #FFF, 1282px 1530px #FFF, 
+    1462px 368px #FFF, 608px 1258px #FFF, 1256px 661px #FFF, 413px 432px #FFF, 
+    1288px 1137px #FFF, 1331px 1123px #FFF, 513px 129px #FFF, 151px 1600px #FFF,
+    1821px 199px 1px #FFF, 792px 420px 1px #FFF, 1434px 550px 1px #FFF,
+    888px 999px 1px #FFF, 1600px 200px 1px #FFF, 250px 800px 1px #FFF;
+}
+
+.sparkles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00eaff;
+  animation: twinkle infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* --- FADE-IN --- */
+.fade-in {
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

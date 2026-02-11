@@ -1,0 +1,23 @@
+# ====================================================
+# Requirements for Satellite-Ground Quantum Simulator
+# ====================================================
+
+# Core Flask and Web Framework
+Flask==2.3.3
+Flask-CORS==4.0.0
+
+# Scientific Computing and Data Processing
+numpy>=1.26.4
+matplotlib>=3.9.2
+scipy>=1.14.1
+
+# Quantum Computing Framework (Qiskit)
+qiskit==0.44.2
+qiskit-aer>=0.17.1
+qiskit-ibm-runtime>=0.23.0
+qiskit-visualization>=0.3.0
+
+
+# Development and Testing (Optional)
+# pytest==7.4.2
+requests==2.31.0

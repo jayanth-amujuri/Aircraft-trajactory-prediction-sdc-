@@ -1,0 +1,214 @@
+/* Main Container */
+.analysis-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #e2e8f0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Title Styling */
+.analysis-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.analysis-subtitle {
+  text-align: center;
+  color: #94a3b8;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Metric Table */
+.metric-table {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.metric-table .row {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metric-table .row:last-child {
+  border-bottom: none;
+}
+
+.metric-table .header {
+  background: rgba(56, 189, 248, 0.1);
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+/* Graph Styling */
+.graph-box {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.graph-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.graph-caption {
+  margin-top: 1rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* Info Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-card {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.info-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+
+.info-card ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.info-card li {
+  margin-bottom: 0.5rem;
+  color: #e2e8f0;
+}
+
+/* Condition Grid */
+.condition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.condition-card {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.condition-card.success {
+  border-left: 4px solid #10b981;
+}
+
+.condition-card.failure {
+  border-left: 4px solid #ef4444;
+}
+
+.condition-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.condition-card ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.condition-card li {
+  margin-bottom: 0.5rem;
+  color: #e2e8f0;
+}
+
+/* Navigation Footer */
+.nav-footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.nav-footer button {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-footer button:hover {
+  background: rgba(56, 189, 248, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Loading and Error States */
+.loading-text, .error-text {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 2rem;
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.error-text {
+  color: #ef4444;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .analysis-container {
+    padding: 1rem;
+  }
+  
+  .analysis-title {
+    font-size: 2rem;
+  }
+  
+  .metric-table .row {
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .info-grid, .condition-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.analysis-container > * {
+  animation: fadeIn 0.5s ease-out forwards;
+}
